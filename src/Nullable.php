@@ -3,6 +3,7 @@
 namespace Imanghafoori\Helpers;
 
 use App;
+use function foo\func;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
@@ -10,14 +11,18 @@ class Nullable
 {
     private $result;
 
+    private $predicate = null;
+
     /**
      * Nullable constructor.
      *
      * @param $value
+     * @param $predicate
      */
-    public function __construct($value)
+    public function __construct($value, $predicate = null)
     {
         $this->result = $value;
+        $this->predicate = $predicate;
     }
 
     /**
@@ -27,7 +32,15 @@ class Nullable
      */
     public function getOr($default)
     {
-        if (! is_null($this->result)) {
+        if (is_callable($this->predicate)) {
+            $p = $this->predicate;
+        } else {
+            $p = function ($r) {
+                return is_null($r);
+            };
+        }
+
+        if (! $p($this->result)) {
             return $this->result;
         }
 
@@ -39,7 +52,8 @@ class Nullable
     }
 
     /**
-     * @param  $callable
+     * @param       $callable
+     * @param array $params
      *
      * @return mixed
      */

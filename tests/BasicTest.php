@@ -11,6 +11,28 @@ class BasicTest extends TestCase
         $value = nullable(null)->getOr('hello');
         $this->assertEquals('hello', $value);
 
+        $value = nullable(null, function ($v) {
+            return is_null($v);
+        })->getOr('hello');
+        $this->assertEquals('hello', $value);
+
+        $value = nullable(null)->getOr('hello');
+        $this->assertEquals('hello', $value);
+
+        $value = nullable([], function ($v) {
+            return empty($v);
+        })->getOr('hello');
+        $this->assertEquals('hello', $value);
+
+        $value = nullable([], function ($v) {
+            return [] === $v;
+        })->getOr('hello');
+        $this->assertEquals('hello', $value);
+
+
+        $value = nullable([], 'is_array')->getOr('hello');
+        $this->assertEquals('hello', $value);
+
         $value = nullable('not null')->getOr('hello');
         $this->assertEquals('not null', $value);
 
