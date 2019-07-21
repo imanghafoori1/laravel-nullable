@@ -1,4 +1,4 @@
-#  laravel nullable
+#  Laravel Nullable
 
 [![Code Coverage](https://scrutinizer-ci.com/g/imanghafoori1/laravel-nullable/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/imanghafoori1/laravel-nullable/?branch=master)
 [![Build Status](https://travis-ci.org/imanghafoori1/laravel-nullable.svg?branch=master)](https://travis-ci.org/imanghafoori1/laravel-nullable)
@@ -46,9 +46,9 @@ if ($user === null) {
 
 ```
 
-To refactor the code above :
+## Nullables to rescue !!!
 
-First
+To refactor the code above, first
 
 You have to change your repo class :
 
