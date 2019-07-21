@@ -4,6 +4,7 @@
 [![Code Coverage](https://scrutinizer-ci.com/g/imanghafoori1/laravel-nullable/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/imanghafoori1/laravel-nullable/?branch=master)
 [![Build Status](https://travis-ci.org/imanghafoori1/laravel-nullable.svg?branch=master)](https://travis-ci.org/imanghafoori1/laravel-nullable)
 [![Latest Stable Version](https://poser.pugx.org/imanghafoori/laravel-nullable/v/stable)](https://packagist.org/packages/imanghafoori/laravel-nullable)
+[![License](https://poser.pugx.org/imanghafoori/laravel-anypass/license)](https://packagist.org/packages/imanghafoori/laravel-anypass)
 
 
 ### Functional paradigm in laravel
