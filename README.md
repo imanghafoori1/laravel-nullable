@@ -1,6 +1,11 @@
 #  laravel nullable
 Functional paradigm in laravel
 
+### installation:
+
+```
+composer require imanghafoori/laravel-nullable
+```
 
 This package exposes a `nullable()` global helper function with which you can wrap values that are sometime `null` and sometimes an other type object.
 
