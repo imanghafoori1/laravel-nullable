@@ -2,10 +2,8 @@
 
 namespace Imanghafoori\Helpers;
 
-use App;
-use function foo\func;
-use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Symfony\Component\HttpFoundation\Response;
 
 class Nullable
 {
@@ -40,7 +38,7 @@ class Nullable
             };
         }
 
-        if (! $p($this->result)) {
+        if (!$p($this->result)) {
             return $this->result;
         }
 
@@ -59,7 +57,7 @@ class Nullable
      */
     public function getOrSend($callable, $params = [])
     {
-        if (! is_null($this->result)) {
+        if (!is_null($this->result)) {
             return $this->result;
         }
 
@@ -71,7 +69,7 @@ class Nullable
             $response = $callable;
         }
 
-        if(isset($response)) {
+        if (isset($response)) {
             throw new HttpResponseException($response);
         }
 
