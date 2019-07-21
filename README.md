@@ -1,6 +1,7 @@
 #  laravel nullable
 
 [![Code Coverage](https://scrutinizer-ci.com/g/imanghafoori1/laravel-nullable/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/imanghafoori1/laravel-nullable/?branch=master)
+[![Build Status](https://travis-ci.org/imanghafoori1/laravel-nullable.svg?branch=master)](https://travis-ci.org/imanghafoori1/laravel-nullable)
 
 
 Functional paradigm in laravel
