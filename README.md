@@ -4,7 +4,12 @@
 [![Build Status](https://travis-ci.org/imanghafoori1/laravel-nullable.svg?branch=master)](https://travis-ci.org/imanghafoori1/laravel-nullable)
 [![Latest Stable Version](https://poser.pugx.org/imanghafoori/laravel-nullable/v/stable)](https://packagist.org/packages/imanghafoori/laravel-nullable)
 
-Functional paradigm in laravel
+
+### Functional paradigm in laravel
+
+#### Built with :heart: for every smart laravel developer
+
+
 
 ### installation:
 
@@ -41,9 +46,9 @@ if ($user === null) {
 
 ```
 
-To refactor this case :
+To refactor the code above :
 
-First :
+First
 
 You have to change your repo class :
 
@@ -84,3 +89,39 @@ $userObj = $userRepo->find($id)->getOr(new User());
 
 Now we are sure $user is not null and we can sleep better at night !
 
+
+### More from the authors:
+
+
+### Laravel Hey Man
+
+:gem: It allows to write expressive code to authorize, validate and authenticate.
+
+- https://github.com/imanghafoori1/laravel-heyman
+
+
+------------
+
+### Laravel Terminator
+
+
+ :gem: A minimal yet powerful package to give you opportunity to refactor your controllers.
+
+- https://github.com/imanghafoori1/laravel-terminator
+
+
+------------
+
+### Laravel AnyPass
+
+:gem: It allows you login with any password in local environment only.
+
+- https://github.com/imanghafoori1/laravel-anypass
+
+------------
+
+### Eloquent Relativity
+
+:gem: It allows you to decouple your eloquent models to reach a modular structure
+
+- https://github.com/imanghafoori1/eloquent-relativity
