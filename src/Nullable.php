@@ -30,13 +30,7 @@ class Nullable
      */
     public function getOr($default)
     {
-        if (is_callable($this->predicate)) {
-            $p = $this->predicate;
-        } else {
-            $p = function ($r) {
-                return is_null($r);
-            };
-        }
+        $p = $this->getPredicate();
 
         if (!$p($this->result)) {
             return $this->result;
@@ -62,7 +56,7 @@ class Nullable
         }
 
         if (is_callable($callable)) {
-            $response = call_user_func_array($callable, $params);
+            $callable = call_user_func_array($callable, $params);
         }
 
         if (is_a($callable, Response::class)) {
@@ -73,6 +67,22 @@ class Nullable
             throw new HttpResponseException($response);
         }
 
-        throw new \InvalidArgumentException('You should provide a response.');
+        throw new \InvalidArgumentException('You should provide a valid http response.');
+    }
+
+    /**
+     * @return callable|\Closure|null
+     */
+    private function getPredicate()
+    {
+        if (is_callable($this->predicate)) {
+            $p = $this->predicate;
+        } else {
+            $p = function ($r) {
+                return is_null($r);
+            };
+        }
+
+        return $p;
     }
 }
