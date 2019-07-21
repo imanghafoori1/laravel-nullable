@@ -2,6 +2,7 @@
 
 use Imanghafoori\Helpers\Nullable;
 
-function nullable ($nullable, $predicate = null) {
+function nullable($nullable, $predicate = null)
+{
     return new Nullable($nullable, $predicate);
 }

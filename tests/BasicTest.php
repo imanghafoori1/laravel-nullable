@@ -29,14 +29,13 @@ class BasicTest extends TestCase
         })->getOr('hello');
         $this->assertEquals('hello', $value);
 
-
         $value = nullable([], 'is_array')->getOr('hello');
         $this->assertEquals('hello', $value);
 
         $value = nullable('not null')->getOr('hello');
         $this->assertEquals('not null', $value);
 
-        $value = nullable(false)->getOrSend(function(){
+        $value = nullable(false)->getOrSend(function () {
             return redirect()->to('/');
         });
         $this->assertEquals(false, $value);
@@ -45,7 +44,7 @@ class BasicTest extends TestCase
     public function testSendsResponse()
     {
         $this->expectException(HttpResponseException::class);
-        $value = nullable(null)->getOrSend(function(){
+        $value = nullable(null)->getOrSend(function () {
             return redirect()->to('/');
         });
     }
@@ -53,7 +52,7 @@ class BasicTest extends TestCase
     public function testSendsResponseAsArray()
     {
         $this->expectException(HttpResponseException::class);
-        $value = nullable(null)->getOrSend([new Responses, 'error']);
+        $value = nullable(null)->getOrSend([new Responses(), 'error']);
     }
 
     public function testSendsResponseAsArray23()
