@@ -1,4 +1,8 @@
 #  laravel nullable
+
+[![Code Coverage](https://scrutinizer-ci.com/g/imanghafoori1/laravel-nullable/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/imanghafoori1/laravel-nullable/?branch=master)
+
+
 Functional paradigm in laravel
 
 ### installation:
