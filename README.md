@@ -62,9 +62,10 @@ You have to change your repo class :
 public function find ($id) {
      $user = User::find($id);
      
-     return $user;
+     return $user;         <--- you return  User|null :(
 }
 ```
+This method Returns 2 types, and That is the source of confusion for method callers.
 
 to this:
 ```php
@@ -72,9 +73,10 @@ to this:
 public function find ($id) {
      $user = User::find($id);
    
-     return nullable($user);   <--- you return a nullable !
+     return nullable($user);   <--- you return a Nullable object !
 }
 ```
+Now it Only returns a single Nullable type. :)
 
 Then no one can have access to the real meat of your repo (in this case $user object) unless he/she gives a way to handle the `null` case.
 
