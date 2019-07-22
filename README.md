@@ -84,7 +84,10 @@ $userObj = $userRepo->find($id)->getOrSend(function () {
   return redirect()->route('page_not_found');
 });
 
-// or
+// Call a static method.
+$userObj = $userRepo->find($id)->getOrSend([Response::class, 'pageNotFound']);
+
+// or a get default value
 $userObj = $userRepo->find($id)->getOr(new User());
 
 
