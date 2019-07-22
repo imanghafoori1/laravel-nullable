@@ -1,5 +1,8 @@
 #  Laravel Nullable
 
+Do not let any `null` to walk in your code...
+
+[![StyleCI](https://github.styleci.io/repos/198048918/shield?branch=analysis-Xk3E4y)](https://github.styleci.io/repos/198048918)
 <a href="https://scrutinizer-ci.com/g/imanghafoori1/laravel-nullable"><img src="https://img.shields.io/scrutinizer/g/imanghafoori1/laravel-nullable.svg?style=flat-square" alt="Quality Score"></img></a>
 [![Code Coverage](https://scrutinizer-ci.com/g/imanghafoori1/laravel-nullable/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/imanghafoori1/laravel-nullable/?branch=master)
 [![Build Status](https://travis-ci.org/imanghafoori1/laravel-nullable.svg?branch=master)](https://travis-ci.org/imanghafoori1/laravel-nullable)
@@ -83,13 +86,28 @@ $userObj = $userRepo->find($id)->getOrSend(function () {
   return redirect()->route('page_not_found');
 });
 
-// or
+// Call a static method.
+$userObj = $userRepo->find($id)->getOrSend([Response::class, 'pageNotFound']);
+
+// or a get default value
 $userObj = $userRepo->find($id)->getOr(new User());
 
 
 ```
 
 Now we are sure $user is not null and we can sleep better at night !
+
+
+
+### Q & A :
+
+#### Why throwing exceptions is not a good idea ?
+
+When you throw an exception you should always ask your self. Is there any body out there to catch it ??
+What if they forget to catch and handle the exception ?! It is the same issue as the `null`.
+It cases error.
+
+The point is to give no way to continue if they forget to handle the failiars.
 
 
 ### More from the authors:

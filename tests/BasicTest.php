@@ -66,6 +66,14 @@ class BasicTest extends TestCase
         $this->expectException(\InvalidArgumentException::class);
         $value = nullable(null)->getOrSend('ada');
     }
+
+    public function testSendsResponseAsArray2113()
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $value = nullable(null)->getOrSend(function () {
+            return 'sdcsd';
+        });
+    }
 }
 
 class Responses
