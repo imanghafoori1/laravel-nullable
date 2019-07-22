@@ -15,6 +15,9 @@ Do not let any `null` to walk in your code...
 #### Built with :heart: for every smart laravel developer
 
 
+`Null` is usually used to represent a missing value, for example a we can to  find a database a row with a partcular Id.
+And that is the bad idea, we are going to kill off !!!
+
 
 ### installation:
 
@@ -78,7 +81,11 @@ public function find ($id) {
 ```
 Now it Only returns a single Nullable type, no matter what :)
 
-Sfter this change, no one can have access to the real meat of your repo (in this case $user object) unless he/she gives a way to handle the `null` case.
+After this change, no one can have access to the real meat of your repo (in this case User object) unless he/she gives a way to handle the `null` case. 
+No `if(is_null())` is required, No exception handling is required.
+
+Remember PHP does not force us to write that if, and we as humen always tend to forget it.
+
 
 And that makes a differnce ! Before it was easy to forget, but it is impossible to continue if you forget !!!
 
