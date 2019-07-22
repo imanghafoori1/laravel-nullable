@@ -15,6 +15,9 @@ Do not let any `null` to walk in your code...
 #### Built with :heart: for every smart laravel developer
 
 
+`Null` is usually used to represent a missing value, for example a we can to  find a database a row with a partcular Id.
+And that is the bad idea, we are going to kill off !!!
+
 
 ### installation:
 
@@ -62,21 +65,27 @@ You have to change your repo class :
 public function find ($id) {
      $user = User::find($id);
      
-     return $user;
+     return $user;         <--- you return  User|null :(
 }
 ```
+The above code returns 2 types, and That is the source of confusion for method callers.
 
-to this:
+Let's do a small change to it:
 ```php
 
 public function find ($id) {
      $user = User::find($id);
    
-     return nullable($user);   <--- you return a nullable !
+     return nullable($user);   <--- you return only Nullable objects !
 }
 ```
+Now it Only returns a single Nullable type, no matter what :)
 
-Then no one can have access to the real meat of your repo (in this case $user object) unless he/she gives a way to handle the `null` case.
+After this change, no one can have access to the real meat of your repo (in this case User object) unless he/she gives a way to handle the `null` case. 
+No `if(is_null())` is required, No exception handling is required.
+
+Remember PHP does not force us to write that if, and we as humen always tend to forget it.
+
 
 And that makes a differnce ! Before it was easy to forget, but it is impossible to continue if you forget !!!
 
@@ -107,7 +116,7 @@ When you throw an exception you should always ask your self. Is there any body o
 What if they forget to catch and handle the exception ?! It is the same issue as the `null`.
 It cases error.
 
-The point is to give no way to continue if they forget to handle the failiars.
+The point is to give no way to continue, if they forget to handle the failures.
 
 
 ### More from the authors:
