@@ -107,7 +107,7 @@ When you throw an exception you should always ask your self. Is there any body o
 What if they forget to catch and handle the exception ?! It is the same issue as the `null`.
 It cases error.
 
-The point is to give no way to continue if they forget to handle the failiars.
+The point is to give no way to continue, if they forget to handle the failures.
 
 
 ### More from the authors:
