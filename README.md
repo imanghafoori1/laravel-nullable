@@ -98,6 +98,18 @@ $userObj = $userRepo->find($id)->getOr(new User());
 Now we are sure $user is not null and we can sleep better at night !
 
 
+
+### Q & A :
+
+#### Why throwing exceptions is not a good idea ?
+
+When you throw an exception you should always ask your self. Is there any body out there to catch it ??
+What if they forget to catch and handle the exception ?! It is the same issue as the `null`.
+It cases error.
+
+The point is to give no way to continue if they forget to handle the failiars.
+
+
 ### More from the authors:
 
 
