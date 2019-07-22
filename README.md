@@ -65,20 +65,20 @@ public function find ($id) {
      return $user;         <--- you return  User|null :(
 }
 ```
-This method Returns 2 types, and That is the source of confusion for method callers.
+The above code returns 2 types, and That is the source of confusion for method callers.
 
-to this:
+Let's do a small change to it:
 ```php
 
 public function find ($id) {
      $user = User::find($id);
    
-     return nullable($user);   <--- you return a Nullable object !
+     return nullable($user);   <--- you return only Nullable objects !
 }
 ```
-Now it Only returns a single Nullable type. :)
+Now it Only returns a single Nullable type, no matter what :)
 
-Then no one can have access to the real meat of your repo (in this case $user object) unless he/she gives a way to handle the `null` case.
+Sfter this change, no one can have access to the real meat of your repo (in this case $user object) unless he/she gives a way to handle the `null` case.
 
 And that makes a differnce ! Before it was easy to forget, but it is impossible to continue if you forget !!!
 
