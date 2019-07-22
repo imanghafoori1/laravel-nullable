@@ -15,8 +15,8 @@ Do not let any `null` to walk in your code...
 #### Built with :heart: for every smart laravel developer
 
 
-`Null` is usually used to represent a missing value, for example a we can to  find a database a row with a partcular Id.
-And that is the bad idea, we are going to kill off !!!
+`Null` is usually used to represent a missing value, (ex when we can't find a table row with a partcular Id.)
+And that is the BAD IDEA, we are going to kill off !!!
 
 
 ### installation:
@@ -69,6 +69,7 @@ public function find ($id) {
 }
 ```
 The above code returns 2 types, and That is the source of confusion for method callers.
+They get ready for one type, and forget about the other.
 
 Let's do a small change to it:
 ```php
