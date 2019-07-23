@@ -11,22 +11,22 @@ Do not let any `null` to walk in your code...
 [![License](https://poser.pugx.org/imanghafoori/laravel-anypass/license)](https://packagist.org/packages/imanghafoori/laravel-anypass)
 
 
-### Functional paradigm in laravel
+### Functional programming paradigm in laravel
 
 #### Built with :heart: for every smart laravel developer
 
 
-`Null` is usually used to represent a missing value, (ex when we can't find a table row with a partcular Id.)
+`Null` is usually used to represent a missing value (for ex when we can't find a row with a partcular Id we return null)
 And that is the BAD IDEA, we are going to kill off !!!
 
 
-### installation:
+### Installation:
 
 ```
 composer require imanghafoori/laravel-nullable
 ```
 
-This package exposes a `nullable()` global helper function with which you can wrap variables which most of the times are objects but suddenly become `null`.
+This package exposes a `nullable()` global helper function with which you can wrap variables which sometimes are object and sometimes `null`.
 
 Consider this:
 
@@ -36,13 +36,15 @@ $email = User::find(1)->email;
 
 ```
 
+Now this code is working fine But...
+
 What if the user with ID of 1 gets deleted in future ?!
 
 ```null->email ```  and crap !
 
 So if you forget to handle the null with an if statement, you will have errors.
 
-You need something to force you and the users of your class methods to handle the `null` cases.
+You need something to FORCE you and the users of your class methods to handle the `null` cases.
 
 To prevent such errors, you should code like this:
 
