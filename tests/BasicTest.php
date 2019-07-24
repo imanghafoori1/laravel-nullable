@@ -3,6 +3,7 @@
 namespace Imanghafoori\HelpersTests;
 
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class BasicTest extends TestCase
 {
@@ -44,7 +45,8 @@ class BasicTest extends TestCase
     public function testSendsResponse()
     {
         $this->expectException(HttpResponseException::class);
-        $value = nullable(null)->getOrSend(function () {
+
+        nullable(null)->getOrSend(function () {
             return redirect()->to('/');
         });
     }
@@ -52,27 +54,45 @@ class BasicTest extends TestCase
     public function testSendsResponseAsArray()
     {
         $this->expectException(HttpResponseException::class);
-        $value = nullable(null)->getOrSend([new Responses(), 'error']);
+
+        nullable(null)->getOrSend([new Responses(), 'error']);
     }
 
     public function testSendsResponseAsArray23()
     {
         $this->expectException(HttpResponseException::class);
-        $value = nullable(null)->getOrSend(redirect()->to('/'));
+
+        nullable(null)->getOrSend(redirect()->to('/'));
     }
 
     public function testSendsResponseAsArray213()
     {
         $this->expectException(\InvalidArgumentException::class);
-        $value = nullable(null)->getOrSend('ada');
+
+        nullable(null)->getOrSend('ada');
     }
 
     public function testSendsResponseAsArray2113()
     {
         $this->expectException(\InvalidArgumentException::class);
-        $value = nullable(null)->getOrSend(function () {
+
+        nullable(null)->getOrSend(function () {
             return 'sdcsd';
         });
+    }
+
+    public function testSendsResponseAsArray2413()
+    {
+        $this->expectException(NotFoundHttpException::class);
+
+        nullable(null)->getOrAbort(404);
+    }
+
+    public function testSendsResponseAsArray2416()
+    {
+        $val = nullable(false)->getOrAbort(404);
+
+        $this->assertEquals(false, $val);
     }
 }
 

@@ -43,6 +43,15 @@ class Nullable
         return $default;
     }
 
+    public function getOrAbort($code, $message = '', array $headers = [])
+    {
+        if (!is_null($this->result)) {
+            return $this->result;
+        }
+
+        abort($code, $message, $headers);
+    }
+
     /**
      * @param       $callable
      * @param array $params
