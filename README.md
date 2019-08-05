@@ -1,6 +1,6 @@
 #  Laravel Nullable
 
-Do not let any `null` to walk in your code...
+## Do not let `null` to walk in your code...
 
 [![StyleCI](https://github.styleci.io/repos/198048918/shield?branch=analysis-Xk3E4y)](https://github.styleci.io/repos/198048918)
 <a href="https://scrutinizer-ci.com/g/imanghafoori1/laravel-nullable"><img src="https://img.shields.io/scrutinizer/g/imanghafoori1/laravel-nullable.svg?style=flat-square" alt="Quality Score"></img></a>
