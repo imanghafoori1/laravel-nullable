@@ -32,7 +32,7 @@ Consider this:
 
 ```php
 
-$email = User::find(1)->email;
+$email = TwitterApi::find(1)->email;
 
 ```
 
@@ -49,7 +49,7 @@ You need something to FORCE you and the users of your class methods to handle th
 To prevent such errors, you should code like this:
 
 ```php
-$user = $userRepo->find($id);
+$user = $twitterApi->find($id);
 
 if ($user === null) {
     return redirect()->route('page_not_found');
@@ -66,7 +66,7 @@ You have to change your repo class :
 ```php
 // old :
 public function find ($id) {
-     $user = User::find($id);
+     $user = TwitterApi::find($id);
      
      return $user;         <--- you return  User|null :(
 }
@@ -78,7 +78,7 @@ Let's do a small change to it:
 ```php
 
 public function find ($id) {
-     $user = User::find($id);
+     $user = TwitterApi::find($id);
    
      return nullable($user);   <--- you return only Nullable objects !
 }
@@ -100,10 +100,10 @@ $userObj = $userRepo->find($id)->getOrSend(function () {
 });
 
 // Call a static method.
-$userObj = $userRepo->find($id)->getOrSend([Response::class, 'pageNotFound']);
+$userObj = $twitterApi->find($id)->getOrSend([Response::class, 'pageNotFound']);
 
 // or a get default value
-$userObj = $userRepo->find($id)->getOr(new User());
+$userObj = $twitterApi->find($id)->getOr(new User());
 
 
 ```
