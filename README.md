@@ -64,25 +64,42 @@ To refactor the code above, first
 You have to change your repo class :
 
 ```php
-// old :
+
+// the old way:
+
+/**
+* @return User|null            <---- consider here.
+*/
 public function find ($id) {
-     $user = TwitterApi::find($id);
+     $user = TwitterApi::search($id);
      
-     return $user;         <--- you return  User|null :(
+     if (!$user) {
+         return null;
+     }
+     return new User($user);   
 }
 ```
 The above code returns 2 types, and That is the source of confusion for method callers.
 They get ready for one type, and forget about the other.
 
 Let's do a small change to it:
-```php
 
+```php
+/**
+* @return Nullable        <---- we now have only one consistent type.not two.
+*/
 public function find ($id) {
-     $user = TwitterApi::find($id);
-   
-     return nullable($user);   <--- you return only Nullable objects !
+     $user = TwitterApi::search($id);
+     
+     if (!$user) {
+         return new Nullable();
+     }
+     $user = new User($user);   
+
+     return new Nullable($user);
 }
 ```
+
 Now it Only returns a single Nullable type, no matter what :)
 
 After this change, no one can have access to the real meat of your repo (in this case User object) unless he/she gives a way to handle the `null` case. 
