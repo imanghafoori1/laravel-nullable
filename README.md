@@ -1,7 +1,7 @@
 
 <h1 align="center"> Laravel Nullable</h1>
 
-<h2  align="center">Do not let `null`s walk in your code... </h2>
+<h2  align="center">Do not let "null" to impersonate your objects.</h2>
 
 <p align="center">
    
@@ -97,15 +97,15 @@ public function find ($id) {
      $user = TwitterApi::search($id);
      
      if (!$user) {
-         return new Nullable();
+         return new Nullable(null);   //  <----  instead of pure null;
      }
      $user = new User($user);   
 
-     return new Nullable($user);
+     return new Nullable($user);   //  <----  instead of User;
 }
 ```
 
-Now it Only returns a single Nullable type, no matter what :)
+:bell: **Now our method consistently returns Nullable objects, no matter what :)** 
 
 After this change, no one can have access to the real meat of your repo (in this case User object) unless he/she gives a way to handle the `null` case. 
 No `if(is_null())` is required, No exception handling is required.
