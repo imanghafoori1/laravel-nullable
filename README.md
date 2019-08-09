@@ -1,7 +1,10 @@
-#  Laravel Nullable
 
-## Do not let `null` to walk in your code...
+<h1 align="center"> Laravel Nullable</h1>
 
+<h2  align="center">Do not let `null`s walk in your code... </h2>
+
+<p align="center">
+   
 [![StyleCI](https://github.styleci.io/repos/198048918/shield?branch=analysis-Xk3E4y)](https://github.styleci.io/repos/198048918)
 <a href="https://scrutinizer-ci.com/g/imanghafoori1/laravel-nullable"><img src="https://img.shields.io/scrutinizer/g/imanghafoori1/laravel-nullable.svg?style=flat-square" alt="Quality Score"></img></a>
 [![Code Coverage](https://scrutinizer-ci.com/g/imanghafoori1/laravel-nullable/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/imanghafoori1/laravel-nullable/?branch=master)
@@ -10,6 +13,8 @@
 ![PHP from Packagist](https://img.shields.io/packagist/php-v/diplodocker/comments-loader.svg?color=8a92bb&logo=php&logoColor=fff)
 [![License](https://poser.pugx.org/imanghafoori/laravel-anypass/license)](https://packagist.org/packages/imanghafoori/laravel-anypass)
 
+</p>
+   
 
 ### Functional programming paradigm in laravel
 
