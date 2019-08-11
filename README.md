@@ -147,8 +147,15 @@ It cases error.
 The point is to give no way to continue, if they forget to handle the failures.
 
 
-### More from the authors:
+## More from the author:
 
+###  Laravel middlewarize (new*)
+
+:gem: You can put middleware on any method calls.
+
+- https://github.com/imanghafoori1/laravel-middlewarize
+
+-----------
 
 ### Laravel Hey Man
 
