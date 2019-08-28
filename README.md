@@ -100,8 +100,10 @@ public function find ($id) {
          return new Nullable(null);   //  <----  instead of pure null;
      }
      $user = new User($user);   
+     
+     $message = 'Model Not Found with Id : '. $id;
 
-     return new Nullable($user);   //  <----  instead of User;
+     return new Nullable($user, [$message]);   //  <----  instead of User;
 }
 ```
 
@@ -117,8 +119,9 @@ And that makes a differnce ! Before it was easy to forget, but it is impossible 
 
 ```php
 
-$userObj = $userRepo->find($id)->getOrSend(function () {
-  return redirect()->route('page_not_found');
+$userObj = $userRepo->find($id)->getOrSend(function ($message) {
+
+  return redirect()->route('page_not_found')->with('error', $message);
 });
 
 // Call a static method.
@@ -132,13 +135,15 @@ $userObj = $twitterApi->find($id)->getOr(new User());
 
 Now we are sure $user is not null and we can sleep better at night !
 
-An other advantage is that, if you use nullable and you forget to write a test that simulates the situations where null values are returned, phpunit code coverage highlights the closure you have passed to the ->getOrDo() (or similar methods) as none-covered, indicating that there is a missing test.
+### Testing
+
+An other advantage is that, if you use nullable and you forget to write a test that simulates the situations where null values are returned, phpunit code coverage highlights the closure you have passed to the `->getOrDo()` (or similar methods) as none-covered, indicating that there is a missing test.
 
 but if you return the object directly, you can get 100% code coverage without having a test covering nully situations, hence hidden errors may still lurk you at 100% coverage.
 
 ### :arrow_forward: Q & A :
 
-#### Why throwing exceptions is not a good idea ?
+#### Why throwing exceptions is not always the best idea?!
 
 When you throw an exception you should always ask your self. Is there any body out there to catch it ??
 What if they forget to catch and handle the exception ?! It is the same issue as the `null`.
