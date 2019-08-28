@@ -2,6 +2,7 @@
 
 namespace Imanghafoori\HelpersTests;
 
+use InvalidArgumentException;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -12,7 +13,8 @@ class BasicTest extends TestCase
         $value = nullable(null)->getOr('hello');
         $this->assertEquals('hello', $value);
 
-        $value = nullable(null, function ($v) {
+        $value = nullable(null, ['fgbfgb'], function ($v) {
+            $this->assertNull(null);
             return is_null($v);
         })->getOr('hello');
         $this->assertEquals('hello', $value);
@@ -20,23 +22,25 @@ class BasicTest extends TestCase
         $value = nullable(null)->getOr('hello');
         $this->assertEquals('hello', $value);
 
-        $value = nullable([], function ($v) {
+        $value = nullable([], ['sdf'], function ($v) {
+
             return empty($v);
         })->getOr('hello');
         $this->assertEquals('hello', $value);
 
-        $value = nullable([], function ($v) {
+        $value = nullable([], 'sdfv', function ($v) {
             return [] === $v;
         })->getOr('hello');
         $this->assertEquals('hello', $value);
 
-        $value = nullable([], 'is_array')->getOr('hello');
+        $value = nullable([], 'oh no','is_array')->getOr('hello');
         $this->assertEquals('hello', $value);
 
         $value = nullable('not null')->getOr('hello');
         $this->assertEquals('not null', $value);
 
-        $value = nullable(false)->getOrSend(function () {
+        $value = nullable(false, [123])->getOrSend(function ($value) {
+            $this->assertEquals(123, $value);
             return redirect()->to('/');
         });
         $this->assertEquals(false, $value);
@@ -93,6 +97,24 @@ class BasicTest extends TestCase
         $val = nullable(false)->getOrAbort(404);
 
         $this->assertEquals(false, $val);
+    }
+
+    public function testThrowException()
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('hi');
+        $this->expectExceptionCode(11);
+
+        nullable(null)->getOrThrow(InvalidArgumentException::class, 'hi', 11);
+    }
+
+    public function testThrowException2()
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('hi');
+        $this->expectExceptionCode(11);
+
+        nullable(null)->getOrThrow(new InvalidArgumentException('hi', 11));
     }
 }
 
