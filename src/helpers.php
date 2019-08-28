@@ -2,7 +2,7 @@
 
 use Imanghafoori\Helpers\Nullable;
 
-function nullable($nullable, $predicate = null)
+function nullable($nullable, $message = [], $predicate = null)
 {
-    return new Nullable($nullable, $predicate);
+    return new Nullable($nullable, (array)$message, $predicate);
 }

@@ -11,23 +11,22 @@ class Nullable
 
     private $predicate = null;
 
+    private $message = '';
+
     /**
      * Nullable constructor.
      *
-     * @param $value
-     * @param $predicate
+     * @param mixed $value
+     * @param array $message
+     * @param callable $predicate
      */
-    public function __construct($value, $predicate = null)
+    public function __construct($value, array $message = [], $predicate = null)
     {
         $this->result = $value;
+        $this->message = $message;
         $this->predicate = $predicate;
     }
 
-    /**
-     * @param $default
-     *
-     * @return mixed
-     */
     public function getOr($default)
     {
         $p = $this->getPredicate();
@@ -52,20 +51,14 @@ class Nullable
         abort($code, $message, $headers);
     }
 
-    /**
-     * @param       $callable
-     * @param array $params
-     *
-     * @return mixed
-     */
-    public function getOrSend($callable, $params = [])
+    public function getOrSend($callable)
     {
         if (!is_null($this->result)) {
             return $this->result;
         }
 
         if (is_callable($callable)) {
-            $callable = call_user_func_array($callable, $params);
+            $callable = call_user_func_array($callable, $this->message);
         }
 
         if (is_a($callable, Response::class)) {
@@ -76,12 +69,19 @@ class Nullable
             throw new HttpResponseException($response);
         }
 
-        throw new \InvalidArgumentException('You should provide a valid http response.');
+        throw new \InvalidArgumentException('You must provide a valid http response or a callable.');
     }
 
-    /**
-     * @return callable|\Closure|null
-     */
+    public function getOrThrow($exception, ...$parameters)
+    {
+
+        if (!is_null($this->result)) {
+            return $this->result;
+        }
+
+        throw_if(true, $exception, ...$parameters);
+    }
+
     private function getPredicate()
     {
         if (is_callable($this->predicate)) {
