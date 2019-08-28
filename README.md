@@ -73,7 +73,7 @@ You have to change your repo class :
 // the old way:
 
 /**
-* @return User|null            <---- consider here.
+* @return User|null            <---- consider here. We are returning two types !!!
 */
 public function find ($id) {
      $user = TwitterApi::search($id);
@@ -91,8 +91,8 @@ Let's do a small change to it:
 
 ```php
 /**
-* @return Nullable        <---- we now have only one consistent type.not two.
-*/
+ * @return Nullable        <---- we now have only one consistent type. Not two.
+ */
 public function find ($id) {
      $user = TwitterApi::search($id);
      
