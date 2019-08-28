@@ -2,13 +2,13 @@
 <h1 align="center"> Laravel Nullable</h1>
 
 <h2  align="center">Do not let "null" to impersonate your objects.</h2>
-
+   
+<p align="center">
 <img src="https://user-images.githubusercontent.com/6961695/63855847-9524ef00-c9b5-11e9-92dc-9e5232741199.png"/>
    
+
    
-   <p align="center">
-   
-   <a href="https://github.styleci.io/repos/198048918" rel="nofollow"><img src="https://camo.githubusercontent.com/eb20fd626fa8b25bb725cb77f91779c724bc48ad/68747470733a2f2f6769746875622e7374796c6563692e696f2f7265706f732f3139383034383931382f736869656c643f6272616e63683d616e616c797369732d586b33453479" alt="StyleCI" data-canonical-src="https://github.styleci.io/repos/198048918/shield?branch=analysis-Xk3E4y" style="max-width:100%;"></a>
+<a href="https://github.styleci.io/repos/198048918" rel="nofollow"><img src="https://camo.githubusercontent.com/eb20fd626fa8b25bb725cb77f91779c724bc48ad/68747470733a2f2f6769746875622e7374796c6563692e696f2f7265706f732f3139383034383931382f736869656c643f6272616e63683d616e616c797369732d586b33453479" alt="StyleCI" data-canonical-src="https://github.styleci.io/repos/198048918/shield?branch=analysis-Xk3E4y" style="max-width:100%;"></a>
 <a href="https://scrutinizer-ci.com/g/imanghafoori1/laravel-nullable" rel="nofollow"><img src="https://camo.githubusercontent.com/41bca3726697592f356f1e789d37997aac201519/68747470733a2f2f696d672e736869656c64732e696f2f7363727574696e697a65722f672f696d616e676861666f6f7269312f6c61726176656c2d6e756c6c61626c652e7376673f7374796c653d666c61742d737175617265" alt="Quality Score" data-canonical-src="https://img.shields.io/scrutinizer/g/imanghafoori1/laravel-nullable.svg?style=flat-square" style="max-width:100%;"></a>
 <a href="https://scrutinizer-ci.com/g/imanghafoori1/laravel-nullable/?branch=master" rel="nofollow"><img src="https://camo.githubusercontent.com/1eeff0bf14f35448520631b23321844d90dbe986/68747470733a2f2f7363727574696e697a65722d63692e636f6d2f672f696d616e676861666f6f7269312f6c61726176656c2d6e756c6c61626c652f6261646765732f636f7665726167652e706e673f623d6d6173746572" alt="Code Coverage" data-canonical-src="https://scrutinizer-ci.com/g/imanghafoori1/laravel-nullable/badges/coverage.png?b=master" style="max-width:100%;"></a>
 <a href="https://travis-ci.org/imanghafoori1/laravel-nullable" rel="nofollow"><img src="https://camo.githubusercontent.com/af8075aac34f51b9bb627143545f00bb247b44d4/68747470733a2f2f7472617669732d63692e6f72672f696d616e676861666f6f7269312f6c61726176656c2d6e756c6c61626c652e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/imanghafoori1/laravel-nullable.svg?branch=master" style="max-width:100%;"></a>
@@ -25,7 +25,7 @@
 And that is the BAD IDEA, we are going to kill off !!!
 
 
-### Installation:
+### :arrow_forward: Installation:
 
 ```
 composer require imanghafoori/laravel-nullable
@@ -45,7 +45,7 @@ Now this code is working fine But...
 
 What if the user with ID of 1 gets deleted in future ?!
 
-```null->email ```  and crap !
+```null->email ```  and crap ! :anguished:
 
 So if you forget to handle the null with an if statement, you will have errors.
 
@@ -62,7 +62,7 @@ if ($user === null) {
 
 ```
 
-## Nullables to rescue !!!
+## :arrow_forward: Nullables to rescue !!!
 
 To refactor the code above, first
 
@@ -136,7 +136,7 @@ An other advantage is that, if you use nullable and you forget to write a test t
 
 but if you return the object directly, you can get 100% code coverage without having a test covering nully situations, hence hidden errors may still lurk you at 100% coverage.
 
-### Q & A :
+### :arrow_forward: Q & A :
 
 #### Why throwing exceptions is not a good idea ?
 
