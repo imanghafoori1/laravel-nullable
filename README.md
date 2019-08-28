@@ -1,15 +1,20 @@
-#  Laravel Nullable
 
-Do not let any `null` to walk in your code...
+<h1 align="center"> Laravel Nullable</h1>
 
-[![StyleCI](https://github.styleci.io/repos/198048918/shield?branch=analysis-Xk3E4y)](https://github.styleci.io/repos/198048918)
-<a href="https://scrutinizer-ci.com/g/imanghafoori1/laravel-nullable"><img src="https://img.shields.io/scrutinizer/g/imanghafoori1/laravel-nullable.svg?style=flat-square" alt="Quality Score"></img></a>
-[![Code Coverage](https://scrutinizer-ci.com/g/imanghafoori1/laravel-nullable/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/imanghafoori1/laravel-nullable/?branch=master)
-[![Build Status](https://travis-ci.org/imanghafoori1/laravel-nullable.svg?branch=master)](https://travis-ci.org/imanghafoori1/laravel-nullable)
-[![Latest Stable Version](https://poser.pugx.org/imanghafoori/laravel-nullable/v/stable)](https://packagist.org/packages/imanghafoori/laravel-nullable)
-![PHP from Packagist](https://img.shields.io/packagist/php-v/diplodocker/comments-loader.svg?color=8a92bb&logo=php&logoColor=fff)
-[![License](https://poser.pugx.org/imanghafoori/laravel-anypass/license)](https://packagist.org/packages/imanghafoori/laravel-anypass)
+<h2  align="center">Do not let "null" to impersonate your objects.</h2>
 
+<img src="https://user-images.githubusercontent.com/6961695/63855847-9524ef00-c9b5-11e9-92dc-9e5232741199.png"/>
+   
+   
+   <p align="center">
+   
+   <a href="https://github.styleci.io/repos/198048918" rel="nofollow"><img src="https://camo.githubusercontent.com/eb20fd626fa8b25bb725cb77f91779c724bc48ad/68747470733a2f2f6769746875622e7374796c6563692e696f2f7265706f732f3139383034383931382f736869656c643f6272616e63683d616e616c797369732d586b33453479" alt="StyleCI" data-canonical-src="https://github.styleci.io/repos/198048918/shield?branch=analysis-Xk3E4y" style="max-width:100%;"></a>
+<a href="https://scrutinizer-ci.com/g/imanghafoori1/laravel-nullable" rel="nofollow"><img src="https://camo.githubusercontent.com/41bca3726697592f356f1e789d37997aac201519/68747470733a2f2f696d672e736869656c64732e696f2f7363727574696e697a65722f672f696d616e676861666f6f7269312f6c61726176656c2d6e756c6c61626c652e7376673f7374796c653d666c61742d737175617265" alt="Quality Score" data-canonical-src="https://img.shields.io/scrutinizer/g/imanghafoori1/laravel-nullable.svg?style=flat-square" style="max-width:100%;"></a>
+<a href="https://scrutinizer-ci.com/g/imanghafoori1/laravel-nullable/?branch=master" rel="nofollow"><img src="https://camo.githubusercontent.com/1eeff0bf14f35448520631b23321844d90dbe986/68747470733a2f2f7363727574696e697a65722d63692e636f6d2f672f696d616e676861666f6f7269312f6c61726176656c2d6e756c6c61626c652f6261646765732f636f7665726167652e706e673f623d6d6173746572" alt="Code Coverage" data-canonical-src="https://scrutinizer-ci.com/g/imanghafoori1/laravel-nullable/badges/coverage.png?b=master" style="max-width:100%;"></a>
+<a href="https://travis-ci.org/imanghafoori1/laravel-nullable" rel="nofollow"><img src="https://camo.githubusercontent.com/af8075aac34f51b9bb627143545f00bb247b44d4/68747470733a2f2f7472617669732d63692e6f72672f696d616e676861666f6f7269312f6c61726176656c2d6e756c6c61626c652e7376673f6272616e63683d6d6173746572" alt="Build Status" data-canonical-src="https://travis-ci.org/imanghafoori1/laravel-nullable.svg?branch=master" style="max-width:100%;"></a>
+<a href="https://packagist.org/packages/imanghafoori/laravel-nullable" rel="nofollow"><img src="https://camo.githubusercontent.com/ad783a174a9a32fc6415825c41eb8d631f43c82e/68747470733a2f2f706f7365722e707567782e6f72672f696d616e676861666f6f72692f6c61726176656c2d6e756c6c61626c652f762f737461626c65" alt="Latest Stable Version" data-canonical-src="https://poser.pugx.org/imanghafoori/laravel-nullable/v/stable" style="max-width:100%;"></a>
+<a target="_blank" rel="noopener noreferrer" href="https://camo.githubusercontent.com/53867af7105346d348a9fce0d888c67ff4498262/68747470733a2f2f696d672e736869656c64732e696f2f7061636b61676973742f7068702d762f6469706c6f646f636b65722f636f6d6d656e74732d6c6f616465722e7376673f636f6c6f723d386139326262266c6f676f3d706870266c6f676f436f6c6f723d666666"><img src="https://camo.githubusercontent.com/53867af7105346d348a9fce0d888c67ff4498262/68747470733a2f2f696d672e736869656c64732e696f2f7061636b61676973742f7068702d762f6469706c6f646f636b65722f636f6d6d656e74732d6c6f616465722e7376673f636f6c6f723d386139326262266c6f676f3d706870266c6f676f436f6c6f723d666666" alt="PHP from Packagist" data-canonical-src="https://img.shields.io/packagist/php-v/diplodocker/comments-loader.svg?color=8a92bb&amp;logo=php&amp;logoColor=fff" style="max-width:100%;"></a>
+<a href="https://packagist.org/packages/imanghafoori/laravel-anypass" rel="nofollow"><img src="https://camo.githubusercontent.com/c80bc97504e609e27ff81f3fa18c7c500104a7aa/68747470733a2f2f706f7365722e707567782e6f72672f696d616e676861666f6f72692f6c61726176656c2d616e79706173732f6c6963656e7365" alt="License" data-canonical-src="https://poser.pugx.org/imanghafoori/laravel-anypass/license" style="max-width:100%;"></a></p>
 
 ### Functional programming paradigm in laravel
 
@@ -64,26 +69,43 @@ To refactor the code above, first
 You have to change your repo class :
 
 ```php
-// old :
+
+// the old way:
+
+/**
+* @return User|null            <---- consider here.
+*/
 public function find ($id) {
-     $user = TwitterApi::find($id);
+     $user = TwitterApi::search($id);
      
-     return $user;         <--- you return  User|null :(
+     if (!$user) {
+         return null;
+     }
+     return new User($user);   
 }
 ```
 The above code returns 2 types, and That is the source of confusion for method callers.
 They get ready for one type, and forget about the other.
 
 Let's do a small change to it:
-```php
 
+```php
+/**
+* @return Nullable        <---- we now have only one consistent type.not two.
+*/
 public function find ($id) {
-     $user = TwitterApi::find($id);
-   
-     return nullable($user);   <--- you return only Nullable objects !
+     $user = TwitterApi::search($id);
+     
+     if (!$user) {
+         return new Nullable(null);   //  <----  instead of pure null;
+     }
+     $user = new User($user);   
+
+     return new Nullable($user);   //  <----  instead of User;
 }
 ```
-Now it Only returns a single Nullable type, no matter what :)
+
+:bell: **Now our method consistently returns Nullable objects, no matter what :)** 
 
 After this change, no one can have access to the real meat of your repo (in this case User object) unless he/she gives a way to handle the `null` case. 
 No `if(is_null())` is required, No exception handling is required.
@@ -110,7 +132,9 @@ $userObj = $twitterApi->find($id)->getOr(new User());
 
 Now we are sure $user is not null and we can sleep better at night !
 
+An other advantage is that, if you use nullable and you forget to write a test that simulates the situations where null values are returned, phpunit code coverage highlights the closure you have passed to the ->getOrDo() (or similar methods) as none-covered, indicating that there is a missing test.
 
+but if you return the object directly, you can get 100% code coverage without having a test covering nully situations, hence hidden errors may still lurk you at 100% coverage.
 
 ### Q & A :
 
@@ -123,8 +147,15 @@ It cases error.
 The point is to give no way to continue, if they forget to handle the failures.
 
 
-### More from the authors:
+## More from the author:
 
+###  Laravel middlewarize (new*)
+
+:gem: You can put middleware on any method calls.
+
+- https://github.com/imanghafoori1/laravel-middlewarize
+
+-----------
 
 ### Laravel Hey Man
 
