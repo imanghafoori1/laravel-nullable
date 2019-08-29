@@ -39,6 +39,12 @@ class BasicTest extends TestCase
         $value = nullable('not null')->getOr('hello');
         $this->assertEquals('not null', $value);
 
+        $value = nullable(null, 'my error')->getOr(function($msg) {
+            $this->assertEquals('my error', $msg);
+            return 'hey there';
+        });
+        $this->assertEquals('hey there', $value);
+
         $value = nullable(false, [123])->getOrSend(function ($value) {
             $this->assertEquals(123, $value);
             return redirect()->to('/');
@@ -115,6 +121,13 @@ class BasicTest extends TestCase
         $this->expectExceptionCode(11);
 
         nullable(null)->getOrThrow(new InvalidArgumentException('hi', 11));
+    }
+
+    public function testThrowException3()
+    {
+        $value = nullable('I am not null1')->getOrThrow(new InvalidArgumentException('hi', 11));
+
+        $this->assertEquals('I am not null1', $value);
     }
 }
 

@@ -36,7 +36,7 @@ class Nullable
         }
 
         if (is_callable($default)) {
-            return call_user_func($default);
+            return call_user_func_array($default, $this->message);
         }
 
         return $default;
