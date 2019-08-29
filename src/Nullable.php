@@ -11,7 +11,7 @@ class Nullable
 
     private $predicate = null;
 
-    private $message = '';
+    private $message = [];
 
     /**
      * Nullable constructor.
