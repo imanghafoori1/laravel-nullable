@@ -82,6 +82,13 @@ class Nullable
         throw_if(true, $exception, ...$parameters);
     }
 
+    public function onValue(callable $callable)
+    {
+        if (! is_null($this->result)) {
+            return call_user_func_array($callable, [$this->result]);
+        }
+    }
+
     private function getPredicate()
     {
         if (is_callable($this->predicate)) {
