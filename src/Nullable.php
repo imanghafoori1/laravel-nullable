@@ -20,7 +20,7 @@ class Nullable
      * @param array $message
      * @param callable $predicate
      */
-    public function __construct($value, array $message = [], $predicate = null)
+    public function __construct($value = null, array $message = [], $predicate = null)
     {
         $this->result = $value;
         $this->message = $message;
