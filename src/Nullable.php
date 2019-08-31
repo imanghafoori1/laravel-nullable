@@ -74,7 +74,6 @@ class Nullable
 
     public function getOrThrow($exception, ...$parameters)
     {
-
         if (!is_null($this->result)) {
             return $this->result;
         }
@@ -92,13 +91,11 @@ class Nullable
     private function getPredicate()
     {
         if (is_callable($this->predicate)) {
-            $p = $this->predicate;
-        } else {
-            $p = function ($r) {
-                return is_null($r);
-            };
+            return $this->predicate;
         }
 
-        return $p;
+        return function ($value) {
+            return is_null($value);
+        };
     }
 }
