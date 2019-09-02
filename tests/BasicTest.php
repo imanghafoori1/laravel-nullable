@@ -129,6 +129,29 @@ class BasicTest extends TestCase
 
         $this->assertEquals('I am not null1', $value);
     }
+
+    public function testOnValue()
+    {
+        $val = nullable('I am not null');
+        $value = $val->onValue(function ($value) {
+            $this->assertEquals('I am not null', $value);
+
+            return 'hey there';
+        });
+
+        $this->assertEquals('hey there', $value);
+    }
+
+    public function testOnValue2()
+    {
+        $foo = 'foo';
+        $value = nullable(null)->onValue(function () use (&$foo) {
+            $foo = $foo.' hello';
+        });
+
+        $this->assertNull($value);
+        $this->assertEquals('foo', $foo);
+    }
 }
 
 class Responses
