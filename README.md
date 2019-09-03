@@ -25,7 +25,7 @@
 And that is the BAD IDEA, we are going to kill off !!!
 
 
-### :arrow_forward: Installation:
+#### :arrow_forward: Installation:
 
 ```
 composer require imanghafoori/laravel-nullable
@@ -62,7 +62,7 @@ if ($user === null) {
 
 ```
 
-## :arrow_forward: Nullables to rescue !!!
+#### :arrow_forward: Nullables to rescue !!!
 
 To refactor the code above, first
 
@@ -135,13 +135,13 @@ $userObj = $twitterApi->find($id)->getOr(new User());
 
 Now we are sure $user is not null and we can sleep better at night !
 
-### Testing
+#### :arrow_forward: Testing:
 
 An other advantage is that, if you use nullable and you forget to write a test that simulates the situations where null values are returned, phpunit code coverage highlights the closure you have passed to the `->getOrDo()` (or similar methods) as none-covered, indicating that there is a missing test.
 
 but if you return the object directly, you can get 100% code coverage without having a test covering nully situations, hence hidden errors may still lurk you at 100% coverage.
 
-### :arrow_forward: Q & A :
+#### :arrow_forward: Q & A :
 
 #### Why throwing exceptions is not always the best idea?!
 
