@@ -25,7 +25,7 @@
 And that is the BAD IDEA, we are going to kill off !!!
 
 
-#### :arrow_forward: Installation:
+### :fire: Installation:
 
 ```
 composer require imanghafoori/laravel-nullable
