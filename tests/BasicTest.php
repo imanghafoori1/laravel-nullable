@@ -2,8 +2,8 @@
 
 namespace Imanghafoori\HelpersTests;
 
-use InvalidArgumentException;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use InvalidArgumentException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class BasicTest extends TestCase
@@ -15,6 +15,7 @@ class BasicTest extends TestCase
 
         $value = nullable(null, ['fgbfgb'], function ($v) {
             $this->assertNull(null);
+
             return is_null($v);
         })->getOr('hello');
         $this->assertEquals('hello', $value);
@@ -23,7 +24,6 @@ class BasicTest extends TestCase
         $this->assertEquals('hello', $value);
 
         $value = nullable([], ['sdf'], function ($v) {
-
             return empty($v);
         })->getOr('hello');
         $this->assertEquals('hello', $value);
@@ -33,20 +33,22 @@ class BasicTest extends TestCase
         })->getOr('hello');
         $this->assertEquals('hello', $value);
 
-        $value = nullable([], 'oh no','is_array')->getOr('hello');
+        $value = nullable([], 'oh no', 'is_array')->getOr('hello');
         $this->assertEquals('hello', $value);
 
         $value = nullable('not null')->getOr('hello');
         $this->assertEquals('not null', $value);
 
-        $value = nullable(null, 'my error')->getOr(function($msg) {
+        $value = nullable(null, 'my error')->getOr(function ($msg) {
             $this->assertEquals('my error', $msg);
+
             return 'hey there';
         });
         $this->assertEquals('hey there', $value);
 
         $value = nullable(false, [123])->getOrSend(function ($value) {
             $this->assertEquals(123, $value);
+
             return redirect()->to('/');
         });
         $this->assertEquals(false, $value);
