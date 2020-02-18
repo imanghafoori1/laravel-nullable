@@ -200,7 +200,6 @@ The point is to give no way to continue, if they forget to handle the failures.
 ### 🍌 Reward me a crypto-banana 🍌
 So that I will have energy to start the next package for you.
 
-
 - Dodge Coin: DJEZr6GJ4Vx37LGF3zSng711AFZzmJTouN
 - LiteCoin: ltc1q82gnjkend684c5hvprg95fnja0ktjdfrhcu4c4
 - BitCoin: bc1q53dys3jkv0h4vhl88yqhqzyujvk35x8wad7uf9
