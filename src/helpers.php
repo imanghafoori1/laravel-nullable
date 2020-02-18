@@ -3,7 +3,7 @@
 use Imanghafoori\Helpers\Nullable;
 
 /**
- * pass object of Nullable
+ * pass object of Nullable.
  *
  * @param mixed        $nullable
  * @param array        $message
@@ -13,5 +13,5 @@ use Imanghafoori\Helpers\Nullable;
  */
 function nullable($nullable = null, $message = [], $predicate = null)
 {
-    return new Nullable($nullable, (array)$message, $predicate);
+    return new Nullable($nullable, (array) $message, $predicate);
 }

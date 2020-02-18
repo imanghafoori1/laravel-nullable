@@ -31,7 +31,7 @@ class Nullable
     {
         $p = $this->getPredicate();
 
-        if (!$p($this->result)) {
+        if (! $p($this->result)) {
             return $this->result;
         }
 
@@ -44,7 +44,7 @@ class Nullable
 
     public function getOrAbort($code, $message = '', array $headers = [])
     {
-        if (!is_null($this->result)) {
+        if (! is_null($this->result)) {
             return $this->result;
         }
 
@@ -53,7 +53,7 @@ class Nullable
 
     public function getOrSend($callable)
     {
-        if (!is_null($this->result)) {
+        if (! is_null($this->result)) {
             return $this->result;
         }
 
@@ -74,7 +74,7 @@ class Nullable
 
     public function getOrThrow($exception, ...$parameters)
     {
-        if (!is_null($this->result)) {
+        if (! is_null($this->result)) {
             return $this->result;
         }
 
