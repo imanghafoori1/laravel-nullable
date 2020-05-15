@@ -14,8 +14,6 @@ class BasicTest extends TestCase
         $this->assertEquals('hello', $value);
 
         $value = nullable(null, ['fgbfgb'], function ($v) {
-            $this->assertNull(null);
-
             return is_null($v);
         })->getOr('hello');
         $this->assertEquals('hello', $value);
@@ -148,6 +146,50 @@ class BasicTest extends TestCase
     {
         $foo = 'foo';
         $value = nullable(null)->onValue(function () use (&$foo) {
+            $foo = $foo.' hello';
+        });
+
+        $this->assertNull($value);
+        $this->assertEquals('foo', $foo);
+    }
+
+    public function testGetOrAbortUsingPredicate()
+    {
+        $this->expectException(NotFoundHttpException::class);
+
+        $value = nullable(null, ['abc'], function ($v) {
+            return is_null($v);
+        })->getOrAbort(404);
+    }
+
+    public function testGetOrSendUsingPredicate()
+    {
+        $this->expectException(HttpResponseException::class);
+
+        $value = nullable(null, ['abc'], function ($v) {
+            return is_null($v);
+        })->getOrSend(function () {
+            return redirect()->to('/');
+        });
+    }
+
+    public function testGetOrThrowUsingPredicate()
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('hi');
+        $this->expectExceptionCode(11);
+
+        $value = nullable(null, ['abc'], function ($v) {
+            return is_null($v);
+        })->getOrThrow(InvalidArgumentException::class, 'hi', 11);
+    }
+
+    public function testOnValueUsingPredicate()
+    {
+        $foo = 'foo';
+        $value = nullable(null, ['abc'], function ($v) {
+            return is_null($v);
+        })->onValue(function () use (&$foo) {
             $foo = $foo.' hello';
         });
 
