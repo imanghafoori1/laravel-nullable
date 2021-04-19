@@ -196,12 +196,3 @@ The point is to give no way to continue, if they forget to handle the failures.
 - https://github.com/imanghafoori1/eloquent-relativity
 
 -------------
-
-### 🍌 Reward me a crypto-banana 🍌
-So that I will have energy to start the next package for you.
-
-- Dodge Coin: DJEZr6GJ4Vx37LGF3zSng711AFZzmJTouN
-- LiteCoin: ltc1q82gnjkend684c5hvprg95fnja0ktjdfrhcu4c4
-- BitCoin: bc1q53dys3jkv0h4vhl88yqhqzyujvk35x8wad7uf9
-- Ripple: rJwrb2v1TR6rAHRWwcYvNZxjDN2bYpYXhZ
-- Etherium: 0xa4898246820bbC8f677A97C2B73e6DBB9510151e
