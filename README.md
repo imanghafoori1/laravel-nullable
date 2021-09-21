@@ -194,3 +194,5 @@ The point is to give no way to continue, if they forget to handle the failures.
 :gem: It allows you to decouple your eloquent models to reach a modular structure
 
 - https://github.com/imanghafoori1/eloquent-relativity
+
+-------------

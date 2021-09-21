@@ -34,7 +34,7 @@ class Nullable
 
 
     /**
-     * get or
+     * Get the value of nullable object or the default in case of null
      *
      * @param string $default
      *
@@ -44,7 +44,7 @@ class Nullable
     {
         $p = $this->getPredicate();
 
-        if (!$p($this->result)) {
+        if (! $p($this->result)) {
             return $this->result;
         }
 
@@ -68,7 +68,9 @@ class Nullable
      */
     public function getOrAbort($code, $message = '', array $headers = [])
     {
-        if (!is_null($this->result)) {
+        $p = $this->getPredicate();
+
+        if (! $p($this->result)) {
             return $this->result;
         }
 
@@ -86,7 +88,9 @@ class Nullable
      */
     public function getOrSend($callable)
     {
-        if (!is_null($this->result)) {
+        $p = $this->getPredicate();
+
+        if (! $p($this->result)) {
             return $this->result;
         }
 
@@ -117,7 +121,9 @@ class Nullable
      */
     public function getOrThrow($exception, ...$parameters)
     {
-        if (!is_null($this->result)) {
+        $p = $this->getPredicate();
+
+        if (! $p($this->result)) {
             return $this->result;
         }
 
@@ -133,7 +139,9 @@ class Nullable
      */
     public function onValue(callable $callable)
     {
-        if (!is_null($this->result)) {
+        $p = $this->getPredicate();
+
+        if (! $p($this->result)) {
             return call_user_func_array($callable, [$this->result]);
         }
     }
