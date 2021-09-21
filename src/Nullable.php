@@ -15,29 +15,24 @@ class Nullable
 
     private $message = [];
 
-
-
     /**
      * Nullable constructor.
      *
-     * @param mixed    $value
-     * @param array    $message
-     * @param callable $predicate
+     * @param  mixed  $value
+     * @param  array  $message
+     * @param  callable  $predicate
      */
     public function __construct($value = null, array $message = [], $predicate = null)
     {
-        $this->result    = $value;
-        $this->message   = $message;
+        $this->result = $value;
+        $this->message = $message;
         $this->predicate = $predicate;
     }
 
-
-
     /**
-     * Get the value of nullable object or the default in case of null
+     * Get the value of nullable object or the default in case of null.
      *
-     * @param string $default
-     *
+     * @param  string  $default
      * @return mixed|null
      */
     public function getOr($default)
@@ -55,15 +50,12 @@ class Nullable
         return $default;
     }
 
-
-
     /**
-     * pass result or abort error message
+     * pass result or abort error message.
      *
-     * @param int    $code
-     * @param string $message
-     * @param array  $headers
-     *
+     * @param  int  $code
+     * @param  string  $message
+     * @param  array  $headers
      * @return mixed|null
      */
     public function getOrAbort($code, $message = '', array $headers = [])
@@ -77,13 +69,10 @@ class Nullable
         abort($code, $message, $headers);
     }
 
-
-
     /**
-     * check valid http response
+     * check valid http response.
      *
-     * @param string $callable
-     *
+     * @param  string  $callable
      * @return mixed|null
      */
     public function getOrSend($callable)
@@ -109,14 +98,11 @@ class Nullable
         throw new InvalidArgumentException('You must provide a valid http response or a callable.');
     }
 
-
-
     /**
-     * get param or throw
+     * get param or throw.
      *
-     * @param       $exception
-     * @param mixed ...$parameters
-     *
+     * @param  $exception
+     * @param  mixed  ...$parameters
      * @return mixed|null
      */
     public function getOrThrow($exception, ...$parameters)
@@ -130,11 +116,8 @@ class Nullable
         throw_if(true, $exception, ...$parameters);
     }
 
-
-
     /**
-     * @param callable $callable
-     *
+     * @param  callable  $callable
      * @return mixed
      */
     public function onValue(callable $callable)
@@ -146,10 +129,8 @@ class Nullable
         }
     }
 
-
-
     /**
-     * get predicate
+     * get predicate.
      *
      * @return callable|Closure|null
      */
