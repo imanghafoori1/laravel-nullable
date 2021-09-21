@@ -2,7 +2,9 @@
 
 namespace Imanghafoori\Helpers;
 
+use Closure;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use InvalidArgumentException;
 use Symfony\Component\HttpFoundation\Response;
 
 class Nullable
@@ -13,20 +15,31 @@ class Nullable
 
     private $message = [];
 
+
+
     /**
      * Nullable constructor.
      *
-     * @param mixed $value
-     * @param array $message
+     * @param mixed    $value
+     * @param array    $message
      * @param callable $predicate
      */
     public function __construct($value = null, array $message = [], $predicate = null)
     {
-        $this->result = $value;
-        $this->message = $message;
+        $this->result    = $value;
+        $this->message   = $message;
         $this->predicate = $predicate;
     }
 
+
+
+    /**
+     * Get the value of nullable object or the default in case of null
+     *
+     * @param string $default
+     *
+     * @return mixed|null
+     */
     public function getOr($default)
     {
         $p = $this->getPredicate();
@@ -42,6 +55,17 @@ class Nullable
         return $default;
     }
 
+
+
+    /**
+     * pass result or abort error message
+     *
+     * @param int    $code
+     * @param string $message
+     * @param array  $headers
+     *
+     * @return mixed|null
+     */
     public function getOrAbort($code, $message = '', array $headers = [])
     {
         $p = $this->getPredicate();
@@ -53,6 +77,15 @@ class Nullable
         abort($code, $message, $headers);
     }
 
+
+
+    /**
+     * check valid http response
+     *
+     * @param string $callable
+     *
+     * @return mixed|null
+     */
     public function getOrSend($callable)
     {
         $p = $this->getPredicate();
@@ -73,9 +106,19 @@ class Nullable
             throw new HttpResponseException($response);
         }
 
-        throw new \InvalidArgumentException('You must provide a valid http response or a callable.');
+        throw new InvalidArgumentException('You must provide a valid http response or a callable.');
     }
 
+
+
+    /**
+     * get param or throw
+     *
+     * @param       $exception
+     * @param mixed ...$parameters
+     *
+     * @return mixed|null
+     */
     public function getOrThrow($exception, ...$parameters)
     {
         $p = $this->getPredicate();
@@ -87,6 +130,13 @@ class Nullable
         throw_if(true, $exception, ...$parameters);
     }
 
+
+
+    /**
+     * @param callable $callable
+     *
+     * @return mixed
+     */
     public function onValue(callable $callable)
     {
         $p = $this->getPredicate();
@@ -96,6 +146,13 @@ class Nullable
         }
     }
 
+
+
+    /**
+     * get predicate
+     *
+     * @return callable|Closure|null
+     */
     private function getPredicate()
     {
         if (is_callable($this->predicate)) {
