@@ -1,7 +1,7 @@
 {
     "name": "imanghafoori/laravel-nullable",
     "description": "A package to help you write expressive defensive code in a functional manner",
-    "keywords": ["laravel", "laravel5-package", "PHP", "laravel5"],
+    "keywords": ["laravel", "laravel5-package", "PHP"],
     "license": "MIT",
     "homepage": "https://github.com/imanghafoori1/laravel-nullable",
     "authors": [
@@ -11,7 +11,7 @@
         }
     ],
     "require": {
-        "php": "^7.1.3|7.2.*|7.3.*|7.4.*|8.0.*|8.1.*",
+        "php": "^7.1.3|7.2.*|7.3.*|7.4.*|8.0.*|8.1.*|8.2.*",
         "laravel/framework":"~5.1|6.*|7.*|8.*|9.*|10.*"
     },
     "require-dev": {
@@ -35,7 +35,7 @@
         "imanghafoori/laravel-widgetize": "Gives you a better structure and caching opportunity for your web pages.",
         "imanghafoori/laravel-decorator": "Allows you to easily apply the decorator pattern in a laravel app.",
         "imanghafoori/laravel-anypass": " Allows you login with any password in local environment.",
-		"imanghafoori/laravel-masterpass": "You can easily set a master password without code change.",
+	"imanghafoori/laravel-masterpass": "You can easily set a master password without code change.",
         "imanghafoori/laravel-terminator": "Gives you opportunity to refactor your controllers.",
         "imanghafoori/eloquent-relativity": "Decouple your eloquent models from each other."
     },
