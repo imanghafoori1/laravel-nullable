@@ -32,7 +32,7 @@ class Nullable
     /**
      * Get the value of nullable object or the default in case of null.
      *
-     * @param  string  $default
+     * @param  string|array  $default
      * @return mixed|null
      */
     public function getOr($default)
@@ -72,7 +72,7 @@ class Nullable
     /**
      * check valid http response.
      *
-     * @param  string  $callable
+     * @param  string|array  $callable
      * @return mixed|null
      */
     public function getOrSend($callable)
